@@ -9,7 +9,7 @@ Onde uma mensagem pode ser definida como uma estrutura de dados composta por met
 
 ### Onde usar messageria?
 
-Imagine o seguinte cenario. 
+* Imagine o seguinte cenario. < /br>
 onde o seu WebService esteja indisponível todas as requisições feitas para ele serão perdidas. Porém quando utilizamos um messageria para intermediar a comunicação nós ganhamos resiliência, pois mesmo que a outra ponta esteja indisponível, a requisição será recebida e armazenada e assim que o sistema voltar a funcionar ele irá ler todas as mensagens e processar todas as requisições que ficaram enfileiradas no MOM, ou seja, você diminui bastante o acoplamento da integração.
 
 
