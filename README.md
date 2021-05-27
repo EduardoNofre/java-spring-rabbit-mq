@@ -29,3 +29,14 @@ Os bindings são caminhos de entrega das mensagens, o exchange utiliza-os para i
 
 * **Exchanges (Permutadores)** <br>
 Os exchanges são os responsáveis por distribuir as mensagens para as queues, utilizando os bindings para identificar a fila de destino daquela mensagem específica.
+
+### Instalando com Maven
+Para instalar a biblioteca com maven, basta adicionar a dependência no arquivo `pom.xml`.
+
+´´´´
+<dependency>
+    <groupId>com.rabbitmq</groupId>
+    <artifactId>amqp-client</artifactId>
+    <version>5.0.0</version>
+</dependency>
+´´´´
