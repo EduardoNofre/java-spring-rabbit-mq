@@ -1,5 +1,7 @@
 package com.api.java.spring.rabbit.mq.app.estudo.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -7,6 +9,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.api.java.spring.rabbit.mq.app.estudo.model.RabbitMQModel;
+import com.api.spring.projections.app.estudo.entity.EmpresaEntity;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -30,10 +35,10 @@ public class RabbitMQController {
 			" <br />responseCode = 504, Gateway Time-Out." 
 			)})
 	@PostMapping(value = "path")
-	public SomeEnityData postMethodName(@RequestBody SomeEnityData entity) {
+	public ResponseEntity<RabbitMQModel>  sendMsg (@RequestBody RabbitMQModel rabbitMQModel) {
 		// TODO: process POST request
 
-		return entity;
+		return new ResponseEntity<EmpresaEntity>(empresaService.buscaIdEmpresa(id), HttpStatus.OK);
 	}
 
 	@Operation(summary = "Busca mensgaem na fila", description = "Busca mensgaem na fila", tags = {"get msg queue" })
@@ -45,7 +50,7 @@ public class RabbitMQController {
 			" <br />responseCode = 500, Erro interno sem causa mapeada." +
 			" <br />responseCode = 504, Gateway Time-Out." 
 			)})
-	@GetMapping(value = "path")
+	@GetMapping(value = "id/{id}", produces = { "application/json", "application/xml" })
 	public SomeData getMethodName(@RequestParam String param) {
 		return new SomeData();
 	}
