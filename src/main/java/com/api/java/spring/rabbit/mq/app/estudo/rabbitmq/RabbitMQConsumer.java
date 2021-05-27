@@ -21,56 +21,53 @@ import com.rabbitmq.client.Envelope;
  *
  */
 public class RabbitMQConsumer {
-	
+
 	private final static String NOME_FILA_MSG = "fila001msg";
 
 	private final static String NOME_FILA_JSON = "fila001json";
 
-	public void getMsg(String msg) throws java.io.IOException, java.lang.InterruptedException, TimeoutException {
-		
-        ConnectionFactory factory = Conexao.getConnectionFactory();
+	public String getMsg(String msg) throws java.io.IOException, java.lang.InterruptedException, TimeoutException {
 
-        Connection connection = factory.newConnection();
-        
-        Channel channel = connection.createChannel();
+		ConnectionFactory factory = Conexao.getConnectionFactory();
 
-        channel.queueDeclare(NOME_FILA_MSG, false, false, false, null);
+		Connection connection = factory.newConnection();
 
-        Consumer consumer = new DefaultConsumer(channel) {
-        	
-            @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-            	
-                String message = new String(body, "UTF-8");
-                
-                System.out.println(" [x] Received '" + message + "'");
-            }
-        };
-        channel.basicConsume(NOME_FILA_MSG, true, consumer);
+		Channel channel = connection.createChannel();
 
+		channel.queueDeclare(NOME_FILA_MSG, false, false, false, null);
+
+		Consumer consumer = new DefaultConsumer(channel) {
+
+			@Override
+			public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+
+				String message = new String(body, "UTF-8");
+
+				System.out.println(" [x] Received '" + message + "'");
+			}
+		};
+		return channel.basicConsume(NOME_FILA_MSG, true, consumer);
 	}
 
-	public void getJson(RabbitMQModel rabbitMQModel) throws java.io.IOException, java.lang.InterruptedException, TimeoutException {
-		
-        ConnectionFactory factory = Conexao.getConnectionFactory();
+	public String getJson(RabbitMQModel rabbitMQModel) throws java.io.IOException, java.lang.InterruptedException, TimeoutException {
 
-        Connection connection = factory.newConnection();
-        
-        Channel channel = connection.createChannel();
+		ConnectionFactory factory = Conexao.getConnectionFactory();
 
-        channel.queueDeclare(NOME_FILA_JSON, false, false, false, null);
+		Connection connection = factory.newConnection();
 
-        Consumer consumer = new DefaultConsumer(channel) {
-        	
-            @Override
-            public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-            	
-                String message = new String(body, "UTF-8");
-         
-            }
-        };
-        channel.basicConsume(NOME_FILA_JSON, true, consumer);
+		Channel channel = connection.createChannel();
 
+		channel.queueDeclare(NOME_FILA_JSON, false, false, false, null);
+
+		Consumer consumer = new DefaultConsumer(channel) {
+
+			@Override
+			public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+
+				String message = new String(body, "UTF-8");
+
+			}
+		};
+		return channel.basicConsume(NOME_FILA_JSON, true, consumer);
 	}
-
 }

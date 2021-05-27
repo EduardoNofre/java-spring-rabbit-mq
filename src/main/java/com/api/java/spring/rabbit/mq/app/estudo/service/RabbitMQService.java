@@ -1,5 +1,8 @@
 package com.api.java.spring.rabbit.mq.app.estudo.service;
 
+import java.io.IOException;
+import java.util.concurrent.TimeoutException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,25 +20,25 @@ public class RabbitMQService {
 	private RabbitMQConsumer rabbitMQConsumer;
 	
 	
-	public String sendMsg(String msg) {
+	public String sendMsg(String msg) throws IOException, InterruptedException, TimeoutException {
 
 		return rabbitMQProducing.sendMsg(msg);
 
 	}
 
-	public String getMsg(String msg) {
+	public String getMsg(String msg) throws IOException, InterruptedException, TimeoutException {
 
-		return rabbitMQConsumer.getMsg(msg);;
+		return rabbitMQConsumer.getMsg(msg);
 
 	}
 
-	public RabbitMQModel sendJson(RabbitMQModel rabbitMQModel) {
+	public String sendJson(RabbitMQModel rabbitMQModel) throws IOException, InterruptedException, TimeoutException {
 
 		return rabbitMQConsumer.getJson(rabbitMQModel);
 
 	}
 
-	public RabbitMQModel getJson(RabbitMQModel rabbitMQModel) {
+	public String getJson(RabbitMQModel rabbitMQModel) throws IOException, InterruptedException, TimeoutException {
 
 		return rabbitMQConsumer.getJson(rabbitMQModel);
 

@@ -1,5 +1,8 @@
 package com.api.java.spring.rabbit.mq.app.estudo.controller;
 
+import java.io.IOException;
+import java.util.concurrent.TimeoutException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,7 +43,7 @@ public class RabbitMQController {
 			" <br />responseCode = 504, Gateway Time-Out." 
 			)})
 	@PostMapping(value = "envia/msg/{msg}", produces = { "application/json", "application/xml" })
-	public ResponseEntity<String>sendMsg(@Parameter(description = "Nome empresa.", required = true) String msg) {
+	public ResponseEntity<String>sendMsg(@Parameter(description = "Nome empresa.", required = true) String msg) throws IOException, InterruptedException, TimeoutException {
 
 		return new ResponseEntity<String>(rabbitMQService.sendMsg(msg), HttpStatus.OK);
 	}
@@ -55,7 +58,7 @@ public class RabbitMQController {
 			" <br />responseCode = 504, Gateway Time-Out." 
 			)})
 	@GetMapping(value = "get/msg/{msg}", produces = { "application/json", "application/xml" })
-	public ResponseEntity<String>getMsg(@Parameter(description = "get msg", required = true) @PathVariable String msg) {
+	public ResponseEntity<String>getMsg(@Parameter(description = "get msg", required = true) @PathVariable String msg) throws IOException, InterruptedException, TimeoutException {
 
 		return new ResponseEntity<String>(rabbitMQService.getMsg(msg), HttpStatus.OK);
 	}
@@ -70,10 +73,10 @@ public class RabbitMQController {
 			" <br />responseCode = 504, Gateway Time-Out." 
 			)})
 	@PostMapping(value = "envia/json/nome{nome}/nomeFantasia{nomeFantasia}/cnpj{cnpj}", produces = { "application/json", "application/xml" })
-	public ResponseEntity<RabbitMQModel> sendJson(@Parameter(description = "Json enviado.", required = true) @RequestBody RabbitMQModel rabbitMQModel) {
+	public ResponseEntity<String> sendJson(@Parameter(description = "Json enviado.", required = true) @RequestBody RabbitMQModel rabbitMQModel) throws IOException, InterruptedException, TimeoutException {
 		// TODO: process POST request
 
-		return new ResponseEntity<RabbitMQModel>(rabbitMQService.sendJson(rabbitMQModel), HttpStatus.OK);
+		return new ResponseEntity<String>(rabbitMQService.sendJson(rabbitMQModel), HttpStatus.OK);
 	}
 
 	@Operation(summary = "Busca JSON na fila", description = "Busca JSON na fila", tags = {"get JSON queue" })
@@ -86,8 +89,8 @@ public class RabbitMQController {
 			" <br />responseCode = 504, Gateway Time-Out." 
 			)})
 	@GetMapping(value = "id/{id}", produces = { "application/json", "application/xml" })
-	public ResponseEntity<RabbitMQModel> getJson(@Parameter(description = "Json enviado.", required = true) @RequestBody RabbitMQModel rabbitMQModel) {
+	public ResponseEntity<String> getJson(@Parameter(description = "Json enviado.", required = true) @RequestBody RabbitMQModel rabbitMQModel) throws IOException, InterruptedException, TimeoutException {
 
-		return new ResponseEntity<RabbitMQModel>(rabbitMQService.sendJson(rabbitMQModel), HttpStatus.OK);		
+		return new ResponseEntity<String>(rabbitMQService.sendJson(rabbitMQModel), HttpStatus.OK);		
 	}
 }

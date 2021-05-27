@@ -25,7 +25,7 @@ public class RabbitMQProducing {
 
 	private final static String NOME_FILA_JSON = "fila001json";
 
-	public void sendMsg(String msg) throws java.io.IOException, java.lang.InterruptedException, TimeoutException {
+	public String sendMsg(String msg) throws java.io.IOException, java.lang.InterruptedException, TimeoutException {
 
 		ConnectionFactory factory = Conexao.getConnectionFactory();
 
@@ -42,12 +42,14 @@ public class RabbitMQProducing {
 			channel.close();
 
 		} catch (Exception e) {
-			System.err.println("Não foi poss;ível criar conexão\n");
+			
+			return "Não foi possível criar conexão\n";
 		}
+		return "sucesso";
 
 	}
 
-	public void sendMsg(RabbitMQModel rabbitMQModel) throws java.io.IOException, java.lang.InterruptedException, TimeoutException {
+	public String sendMsg(RabbitMQModel rabbitMQModel) throws java.io.IOException, java.lang.InterruptedException, TimeoutException {
 
 		ConnectionFactory factory = Conexao.getConnectionFactory();
 
@@ -62,8 +64,10 @@ public class RabbitMQProducing {
 			channel.close();
 
 		} catch (Exception e) {
-			System.err.println("Não foi possível criar conexão\n");
+			
+			return "Não foi possível criar conexão\n";
 		}
+		return "sucesso";
 	}
 
 	private String converterobjetotoJson(RabbitMQModel rabbitMQModel) {
