@@ -21,11 +21,11 @@ Onde temos um sistema de uma loja que chama um outro sistema que gera nota fisca
 
 ### Definições básicas.
 
-* **Queues (Filas) ** <br>
+* **Queues (Filas)** <br>
 As queues são as filas responsáveis por armazenar as mensagens que serão distribuídas para o canal de saída.
 
-* **Bindings (Vínculos) ** <br>
+* **Bindings (Vínculos)** <br>
 Os bindings são caminhos de entrega das mensagens, o exchange utiliza-os para identificar em qual queue a mensagem será entregue.
 
-* **Exchanges (Permutadores) ** <br>
+* **Exchanges (Permutadores)** <br>
 Os exchanges são os responsáveis por distribuir as mensagens para as queues, utilizando os bindings para identificar a fila de destino daquela mensagem específica.
