@@ -63,6 +63,8 @@ Para conectar ao server, devemos instanciar a classe ConnectionFactory e publica
 * Trecho do codigo:
 
 ````
+Producing – O produtor da mensagem
+
 ConnectionFactory factory = new ConnectionFactory();
 factory.setUsername("username");
 factory.setPassword("senha");
@@ -81,6 +83,8 @@ try (Connection connection = factory.newConnection()) {
 Para receber uma mensagem do server, utilize o mesmo código do envio, porém, instanciando a classe Consumer com o método de recebimento da mensagem.
 
 ````
+Consuming – O recepetor da mensagem
+
 ConnectionFactory factory = new ConnectionFactory();
 factory.setUsername("username");
 factory.setPassword("senha");
