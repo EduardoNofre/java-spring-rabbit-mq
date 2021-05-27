@@ -64,3 +64,5 @@ try (Connection connection = factory.newConnection()) {
 * ### Aviso: 
     Ao criar uma connection no ambiente de produção, evite instanciar uma nova Connection, pois o construtor cria uma conexão TCP/IP com o server destino, podendo elevar o           processamento da aplicação e transporte na rede.
 
+* **Recebendo uma mensagem do Server** <br>
+Para receber uma mensagem do server, utilize o mesmo código do envio, porém, instanciando a classe Consumer com o método de recebimento da mensagem.
