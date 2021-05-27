@@ -30,6 +30,19 @@ Os bindings são caminhos de entrega das mensagens, o exchange utiliza-os para i
 * **Exchanges (Permutadores)** <br>
 Os exchanges são os responsáveis por distribuir as mensagens para as queues, utilizando os bindings para identificar a fila de destino daquela mensagem específica.
 
+
+### Composição básica das filas
+
+* **Producing – O produtor da mensagem** <br>
+Como diz o nome, é a aplicação que produz a mensagem e a insere na fila.
+
+* **Queue – A fila** <br>
+É a caixa postal – a fila – que fica dentro do RabbitMQ e aloca as mensagens enviadas pela sua aplicação. A única limitação para uma fila é a memória de um servidor ou o limite do seu disco. Uma fila pode ser abastecida e consumida por mais de uma aplicação.
+
+* **Consuming – O recepetor da mensagem** <br>
+Esse é o destinatário da nossa mensagem. Geralmente é uma aplicação em que a principal função é receber e processar a mensagem alocada na fila.
+
+
 ### Instalando com Maven
 Para instalar a biblioteca com maven, basta adicionar a dependência no arquivo `pom.xml`.
 
@@ -50,6 +63,8 @@ Para conectar ao server, devemos instanciar a classe ConnectionFactory e publica
 * Trecho do codigo:
 
 ````
+Producing – O produtor da mensagem
+
 ConnectionFactory factory = new ConnectionFactory();
 factory.setUsername("username");
 factory.setPassword("senha");
@@ -68,6 +83,8 @@ try (Connection connection = factory.newConnection()) {
 Para receber uma mensagem do server, utilize o mesmo código do envio, porém, instanciando a classe Consumer com o método de recebimento da mensagem.
 
 ````
+Consuming – O recepetor da mensagem
+
 ConnectionFactory factory = new ConnectionFactory();
 factory.setUsername("username");
 factory.setPassword("senha");
@@ -87,3 +104,8 @@ try (Connection connection = factory.newConnection()) {
 ````
 
 Rapidamente temos um software capaz de responder à mensagens enviadas de forma assíncrona.
+
+
+Creditos:<br>
+[Marcela Sisiliani de Sena SIlva](https://imasters.com.br/back-end/rabbitmq-introducao-ao-mundo-das-filas)<br>
+[Evandro Silva](https://medium.com/tango-labs/usando-rabbitmq-para-turbinar-suas-aplica%C3%A7%C3%B5es-java-32020f03a24c)<br>
