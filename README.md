@@ -103,5 +103,5 @@ Rapidamente temos um software capaz de responder à mensagens enviadas de forma 
 
 
 Creditos:
-[Marcela Sisiliani de Sena SIlva](https://imasters.com.br/back-end/rabbitmq-introducao-ao-mundo-das-filas)
-[Evandro Silva](https://medium.com/tango-labs/usando-rabbitmq-para-turbinar-suas-aplica%C3%A7%C3%B5es-java-32020f03a24c)
+[Marcela Sisiliani de Sena SIlva](https://imasters.com.br/back-end/rabbitmq-introducao-ao-mundo-das-filas)<br>
+[Evandro Silva](https://medium.com/tango-labs/usando-rabbitmq-para-turbinar-suas-aplica%C3%A7%C3%B5es-java-32020f03a24c)<br>
