@@ -17,3 +17,15 @@ onde o seu WebService esteja indisponível todas as requisições feitas para el
 
 * **Cenario - 02.**<br>
 Onde temos um sistema de uma loja que chama um outro sistema que gera nota fiscal, sem um messageria, caso o sistema de notas fique indisponível a loja ficará incapaz de vender pois ocorrerá erros, porém com o messageria a requisição será enfileirada e a nota fiscal será gerada posteriormente tornando o problema transparente para o usuário.
+
+
+### Definições básicas.
+
+* **Queues (Filas) ** <br>
+As queues são as filas responsáveis por armazenar as mensagens que serão distribuídas para o canal de saída.
+
+* **Bindings (Vínculos) ** <br>
+Os bindings são caminhos de entrega das mensagens, o exchange utiliza-os para identificar em qual queue a mensagem será entregue.
+
+* **Exchanges (Permutadores) ** <br>
+Os exchanges são os responsáveis por distribuir as mensagens para as queues, utilizando os bindings para identificar a fila de destino daquela mensagem específica.
