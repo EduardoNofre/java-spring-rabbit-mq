@@ -86,3 +86,4 @@ try (Connection connection = factory.newConnection()) {
 }
 ````
 
+Rapidamente temos um software capaz de responder à mensagens enviadas de forma assíncrona.
