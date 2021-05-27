@@ -41,3 +41,25 @@ Para instalar a biblioteca com maven, basta adicionar a dependência no arquivo 
 </dependency>
 ````
 Neste exemplo iremos utilizar a versão 5.12.0
+
+
+### Vamos colocar as mãos na massa.
+
+* **Enviando uma mensagem para o Server** <br>
+Para conectar ao server, devemos instanciar a classe ConnectionFactory e publicar a mensagem utilizando um channel, conforme exemplo abaixo:
+* Trecho do codigo:
+
+````
+ConnectionFactory factory = new ConnectionFactory();
+factory.setUsername("username");
+factory.setPassword("senha");
+factory.setHost("ip-server");
+try (Connection connection = factory.newConnection()) {
+  Channel channel = connection.createChannel();
+  channel.queueDeclare("nomeDaFila", false, false, false, null);
+  String mensagem = "Olá Mundo!";
+  channel.basicPublish("", "nomeDaFila", null, mensagem.getBytes("UTF-8"));
+}
+````
+
+
