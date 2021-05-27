@@ -61,6 +61,6 @@ try (Connection connection = factory.newConnection()) {
   channel.basicPublish("", "nomeDaFila", null, mensagem.getBytes("UTF-8"));
 }
 ````
-* Obervação: 
+* ### Obervação: 
 Ao criar uma connection no ambiente de produção, evite instanciar uma nova Connection, pois o construtor cria uma conexão TCP/IP com o server destino, podendo elevar o processamento da aplicação e transporte na rede.
 
