@@ -33,10 +33,10 @@ Os exchanges são os responsáveis por distribuir as mensagens para as queues, u
 ### Instalando com Maven
 Para instalar a biblioteca com maven, basta adicionar a dependência no arquivo `pom.xml`.
 
-´´´´
+````
 <dependency>
     <groupId>com.rabbitmq</groupId>
     <artifactId>amqp-client</artifactId>
     <version>5.0.0</version>
 </dependency>
-´´´´
+````
