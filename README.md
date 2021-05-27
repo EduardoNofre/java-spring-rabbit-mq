@@ -37,6 +37,7 @@ Para instalar a biblioteca com maven, basta adicionar a dependência no arquivo 
 <dependency>
     <groupId>com.rabbitmq</groupId>
     <artifactId>amqp-client</artifactId>
-    <version>5.0.0</version>
+    <version>5.12.0</version>
 </dependency>
 ````
+Neste exemplo iremos utilizar a versão 5.12.0
