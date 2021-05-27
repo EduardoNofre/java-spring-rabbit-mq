@@ -66,3 +66,23 @@ try (Connection connection = factory.newConnection()) {
 
 * **Recebendo uma mensagem do Server** <br>
 Para receber uma mensagem do server, utilize o mesmo código do envio, porém, instanciando a classe Consumer com o método de recebimento da mensagem.
+
+````
+ConnectionFactory factory = new ConnectionFactory();
+factory.setUsername("username");
+factory.setPassword("senha");
+factory.setHost("ip-server");
+try (Connection connection = factory.newConnection()) {
+  Channel channel = connection.createChannel();
+  channel.queueDeclare("nomeDaFila", false, false, false, null);
+  Consumer consumer = new DefaultConsumer(channel) {
+    @Override
+    public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+      String mensagem = new String(body, "UTF-8");
+      System.out.println("Mensagem recebida: " + mensagem);
+    }
+  };
+  channel.basicConsume("nomeDaFila", true, consumer);
+}
+````
+
