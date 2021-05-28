@@ -61,6 +61,7 @@ Esse é o destinatário da nossa mensagem. Geralmente é uma aplicação em que 
 * 7 - Vá ate a pasta `CD C:\Program Files\RabbitMQ Server\rabbitmq_server-3.8.9\sbin` usando este comando **prompt**. <br>
     7.1 - Execute este comando: `rabbitmq-plugins.bat enable rabbitmq_management`  <br>
     7.2 - Execute este comando: `rabbitmq-plugins enable rabbitmq_shovel rabbitmq_shovel_management` <br>
+    **Importante:** os comando executados no `7.1 e 7.2` são para liberar a interface do RabbitMq.
 
 ### Instalando com Maven
 Para instalar a biblioteca com maven, basta adicionar a dependência no arquivo `pom.xml`.
