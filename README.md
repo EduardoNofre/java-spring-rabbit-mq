@@ -55,12 +55,12 @@ Esse é o destinatário da nossa mensagem. Geralmente é uma aplicação em que 
 
 * 5 - Use a versão rabbitmq-server-3.8.16.exe mais simples de instalar.
 
-* 6 - Adicionar a variavel de sistema
-    6.1 - nome da variavel = ERLANG_HOME
-    6.2 - valor da variavel = C:\Program Files\erl-24.0 Varia conforme a maquina
-* 7 - Vá ate a pasta cd 'C:\Program Files\RabbitMQ Server\rabbitmq_server-3.8.9\sbin' usando este comando **prompt**.
-    7.1 - Execute este comando: 'rabbitmq-plugins.bat enable rabbitmq_management' 
-    7.2 - Execute este comando: 'rabbitmq-plugins enable rabbitmq_shovel rabbitmq_shovel_management'
+* 6 - Adicionar a variavel de sistema<br>
+    6.1 - nome da variavel = ERLANG_HOME <br>
+    6.2 - valor da variavel = C:\Program Files\erl-24.0 Varia conforme a maquina <br>
+* 7 - Vá ate a pasta cd 'C:\Program Files\RabbitMQ Server\rabbitmq_server-3.8.9\sbin' usando este comando **prompt**. <br>
+    7.1 - Execute este comando: 'rabbitmq-plugins.bat enable rabbitmq_management'  <br>
+    7.2 - Execute este comando: 'rabbitmq-plugins enable rabbitmq_shovel rabbitmq_shovel_management' <br>
 
 ### Instalando com Maven
 Para instalar a biblioteca com maven, basta adicionar a dependência no arquivo `pom.xml`.
