@@ -43,6 +43,14 @@ Como diz o nome, é a aplicação que produz a mensagem e a insere na fila.
 Esse é o destinatário da nossa mensagem. Geralmente é uma aplicação em que a principal função é receber e processar a mensagem alocada na fila.
 
 
+### Instalando no Windows manualmente RabbitMQ 
+
+* 1 - Vá ate o site do oficial do [Rabbitmq](https://www.rabbitmq.com/)
+
+* 2 - Faça o download do rabbitmq referente ao seu S.O.
+
+* 3 - Configure conforme o seu S.O no proprio site oficial tem o manual para cada S.O.
+
 ### Instalando com Maven
 Para instalar a biblioteca com maven, basta adicionar a dependência no arquivo `pom.xml`.
 
