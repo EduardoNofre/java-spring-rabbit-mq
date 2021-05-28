@@ -61,7 +61,14 @@ Esse é o destinatário da nossa mensagem. Geralmente é uma aplicação em que 
 * 7 - Vá ate a pasta `CD C:\Program Files\RabbitMQ Server\rabbitmq_server-3.8.9\sbin` usando este comando **prompt**. <br>
     7.1 - Execute este comando: `rabbitmq-plugins.bat enable rabbitmq_management`  <br>
     7.2 - Execute este comando: `rabbitmq-plugins enable rabbitmq_shovel rabbitmq_shovel_management` <br>
+    
     **Importante:** os comando executados no `7.1 e 7.2` são para liberar a interface do RabbitMq.
+    
+* 8 - Vá ate o diretorio C:\Windows\System32\drivers\etc\hosts.
+    8.1 - Neste diretorio procure pelo arquivo `hosts` 
+    8.2 - Editar o arquivo adicionando esta linha `127.0.0.1 rabbitmq`
+    8.3 - Pro fim abra o seu browser e coloque a seguinte url: `http://rabbitmq:15672/` se tudo deu certo será exibida a tela de login do rabbitmq.
+    8.4 - usuario: **guest** e senha: **guest**
 
 ### Instalando com Maven
 Para instalar a biblioteca com maven, basta adicionar a dependência no arquivo `pom.xml`.
