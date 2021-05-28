@@ -51,6 +51,8 @@ Esse é o destinatário da nossa mensagem. Geralmente é uma aplicação em que 
 
 * 3 - Configure conforme o seu S.O no proprio site oficial tem o manual para cada S.O.
 
+* 4 - Não esqueça de instalar o erl.exe
+
 ### Instalando com Maven
 Para instalar a biblioteca com maven, basta adicionar a dependência no arquivo `pom.xml`.
 
