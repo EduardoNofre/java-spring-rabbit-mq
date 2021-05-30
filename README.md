@@ -103,8 +103,6 @@ try (Connection connection = factory.newConnection()) {
   channel.basicPublish("", "nomeDaFila", null, mensagem.getBytes("UTF-8"));
 }
 ````
-* ### Aviso: 
-    Ao criar uma connection no ambiente de produção, evite instanciar uma nova Connection, pois o construtor cria uma conexão TCP/IP com o server destino, podendo elevar o           processamento da aplicação e transporte na rede.
 
 * **Recebendo uma mensagem do Server** <br>
 Para receber uma mensagem do server, utilize o mesmo código do envio, porém, instanciando a classe Consumer com o método de recebimento da mensagem.
@@ -129,6 +127,16 @@ try (Connection connection = factory.newConnection()) {
   channel.basicConsume("nomeDaFila", true, consumer);
 }
 ```` 
+
+* ### Pontos importantes:
+  * A fila so precisa ser criada uma unica vez?
+    R: sim se todas vez que vc for enviar algo para a fila tive que criar uma fila isso deixa seu sistema mais.
+    
+  * A connection deve criar varias?   
+    R: Não.
+    Ao criar uma connection no ambiente de produção, evite instanciar uma nova Connection, pois o construtor cria uma conexão TCP/IP com o server destino, podendo elevar o           processamento da aplicação e transporte na rede.
+    
+    
 
 Rapidamente temos um software capaz de responder à mensagens enviadas de forma assíncrona.
 
