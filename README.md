@@ -133,7 +133,7 @@ try (Connection connection = factory.newConnection()) {
     R: sim se todas vez que vc for enviar algo para a fila tive que criar uma fila isso deixa seu sistema mais.
     
   * A connection devemos criar varias?<br>
-    R: Não.
+    R: Não.<br>
     Ao criar uma connection no ambiente de produção, evite instanciar uma nova Connection, pois o construtor cria uma conexão TCP/IP com o server destino, podendo elevar o           processamento da aplicação e transporte na rede.
     
     
